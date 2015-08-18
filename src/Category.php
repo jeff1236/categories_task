@@ -1,4 +1,6 @@
 <?php
+    require_once __DIR__."/../src/Task.php";
+
     class Category
     {
         private $name;
@@ -24,6 +26,7 @@
         {
             return $this->id;
         }
+
 
         function save()
         {
@@ -71,7 +74,8 @@
                 $description = $task['description'];
                 $id = $task['id'];
                 $category_id = $task['category_id'];
-                $new_task = new Task($description, $id, $category_id);
+                $date = $task['date'];
+                $new_task = new Task($description, $id, $category_id, $date);
                 array_push($tasks, $new_task);
             }
             return $tasks;
